@@ -1,0 +1,1 @@
+spark-submit --class "com.superluli.spark.SimpleApp" --master local[4] /Users/Lu/workspace/git_workspace/spark-test/target/com.superluli.spark-0.0.1-SNAPSHOT.jar
