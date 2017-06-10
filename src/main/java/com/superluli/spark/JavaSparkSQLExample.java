@@ -94,14 +94,12 @@ public class JavaSparkSQLExample {
 	    Dataset<Row> ds = spark.read()
 	      .format("jdbc")
 	      .option("url", "jdbc:mysql://105.145.39.128:3306/promotion?zeroDateTimeBehavior=convertToNull")
-	      .option("dbtable", "promotion.prmt_trstn")
+	      .option("dbtable", "(select * from prmt_trstn limit 1) tmp")
 	      .option("user", "luli")
-	      .option("password", "12345678").option("fetchSize", "1")
+	      .option("password", "12345678")
 	      .load();
 
-	    
-	    
-	    ds.select("trstn_id", "dvc_id", "cntry_cd").where("'cntry_id'='US'").limit(10).show();
+	    ds.select("trstn_id", "dvc_id", "cntry_cd").limit(10).show();
 	    
 	    
 //	    ds.write()
